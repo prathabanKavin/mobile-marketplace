@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class AuthenticationService {
   userData;
 
   constructor(private ngFireAuth: AngularFireAuth, 
-    private router:Router) {
+    private router:Router,
+    public afStore: AngularFirestore,) {
     this.ngFireAuth.authState.subscribe(user => {
       if (user) {
         this.userData = user;
@@ -48,6 +50,21 @@ export class AuthenticationService {
       this.router.navigate(['login']);
     })
   }
+
+
+  getUser(){
+    return this.ngFireAuth.user;
+  }
+
+  setEmailVerified(value, uid, user) {
+    this.setUserLocal(user);
+    this.afStore.doc(`users/${uid}`).set({
+      username: user.email,
+      uid:user.uid,
+      emailVerified: value
+    }, { merge:true });
+  }
+
 
 
 }

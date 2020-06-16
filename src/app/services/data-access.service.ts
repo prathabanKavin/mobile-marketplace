@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { map, take, mergeAll, zipAll } from 'rxjs/operators';
 
 @Injectable({
@@ -11,19 +11,15 @@ export class DataAccessService {
 
   addListing(userId, listing) {
    
-     return this.afs.collection<any>(`userListings/${userId}/listings`).doc().set(listing);
+     return this.afs.collection<any>(`userListings/${userId}/listings`).add(listing);
      
   }
 
-  getListings(userId) {
-    return this.afs.collection(`userListings/${userId}/listings`).snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
+  getListings(userId){
+    return this.afs.collection<any>(`userListings/${userId}/listings`).valueChanges();
+   
   }
+
+
+  
 }

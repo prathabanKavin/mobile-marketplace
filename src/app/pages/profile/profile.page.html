@@ -2,9 +2,16 @@
   <ion-toolbar color="secondary">
    
     <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-button class="btn_class" (click)="onSignOut()" color="danger" expand="block">Sign Out</ion-button>
 
 </ion-content>

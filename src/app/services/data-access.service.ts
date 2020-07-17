@@ -19,7 +19,5 @@ export class DataAccessService {
     return this.afs.collection<any>(`userListings/${userId}/listings`).valueChanges();
    
   }
-
-
   
 }

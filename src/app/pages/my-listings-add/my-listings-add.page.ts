@@ -10,6 +10,7 @@ import { tap, finalize } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { DataAccessService } from 'src/app/services/data-access.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-my-listings-add',
   templateUrl: './my-listings-add.page.html',
@@ -54,7 +55,8 @@ export class MyListingsAddPage implements OnInit {
     public alertCtrl: AlertController,
     public actionCtrl:ActionSheetController,
     private storage: AngularFireStorage, 
-    private dataSvc:DataAccessService
+    private dataSvc:DataAccessService,
+    private router: Router
   ) { 
     this.isUploading = false;
     this.isUploaded = false;
@@ -223,6 +225,7 @@ export class MyListingsAddPage implements OnInit {
       console.log(this.user.uid, listing)
       this.dataSvc.addListing(this.user.uid, listing).then(()=>{
         this.util.toast('Listing has been successfully added!', 'success', 'bottom');
+        this.router.navigate(['tabs/my-listings']);
       })
       .catch(err => {
         //console.log(err);

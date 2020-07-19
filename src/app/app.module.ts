@@ -13,6 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {PopovercomponentPage} from './pages/popovercomponent/popovercomponent.page';
+import { PopovercomponentPageModule } from './pages/popovercomponent/popovercomponent.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule, 
-  AngularFireStorageModule],
+  AngularFireStorageModule, PopovercomponentPageModule],
   providers: [
     StatusBar,
     SplashScreen,

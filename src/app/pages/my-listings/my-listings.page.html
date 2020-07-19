@@ -3,10 +3,15 @@
    
     <ion-title>My Listings</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
+      <!-- <ion-button >
+        
         <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+        </ion-button> 
+      -->
+      
+      <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
+      
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

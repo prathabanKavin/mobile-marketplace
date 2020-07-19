@@ -5,14 +5,14 @@
 export const environment = {
   production: true,
   firebaseConfig :{
-    apiKey: "AIzaSyA3Y8mFrJgGgN7JIiXtf9Q3WBVKUlVz5zM",
-    authDomain: "mobile-marketplace1.firebaseapp.com",
-    databaseURL: "https://mobile-marketplace1.firebaseio.com",
-    projectId: "mobile-marketplace1",
-    storageBucket: "mobile-marketplace1.appspot.com",
-    messagingSenderId: "490632260310",
-    appId: "1:490632260310:web:4e7bc8e1f71596fdf37777",
-    measurementId: "G-1D4WVKEKPV"
+    apiKey: "AIzaSyAPaRsz21eNwv7LfvVorojka2WAfZOoP-E",
+    authDomain: "moblile-marketplace.firebaseapp.com",
+    databaseURL: "https://moblile-marketplace.firebaseio.com",
+    projectId: "moblile-marketplace",
+    storageBucket: "moblile-marketplace.appspot.com",
+    messagingSenderId: "1006789817791",
+    appId: "1:1006789817791:web:5a38c83d777bdb0f865d0a",
+    measurementId: "G-KBEE1BGTX2"
   }
   
 };

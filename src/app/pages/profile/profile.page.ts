@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
-
+import {PopoverController} from '@ionic/angular';
+import {PopovercomponentPage} from '../popovercomponent/popovercomponent.page';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class ProfilePage implements OnInit {
 
   constructor(private authService:AuthenticationService,
-    private router: Router) { }
+    private router: Router, private popover:PopoverController) { }
 
   ngOnInit() {
   }
@@ -18,5 +19,12 @@ export class ProfilePage implements OnInit {
   onSignOut(){
     this.authService.SignOut();
   }
+  CreatePopover()
+   {
+    this.popover.create({component:PopovercomponentPage,
+    showBackdrop:false}).then((popoverElement)=>{
+    popoverElement.present();
+    })
+   }
 
 }

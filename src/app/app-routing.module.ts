@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'my-listings',
     loadChildren: () => import('./pages/my-listings/my-listings.module').then( m => m.MyListingsPageModule)
+  },  {
+    path: 'popovercomponent',
+    loadChildren: () => import('./pages/popovercomponent/popovercomponent.module').then( m => m.PopovercomponentPageModule)
   }
+
 ];
 @NgModule({
   imports: [

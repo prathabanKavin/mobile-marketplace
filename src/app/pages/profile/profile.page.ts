@@ -3,6 +3,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
 import {PopoverController} from '@ionic/angular';
 import {PopovercomponentPage} from '../popovercomponent/popovercomponent.page';
+import { DataAccessService } from 'src/app/services/data-access.service';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -10,15 +12,31 @@ import {PopovercomponentPage} from '../popovercomponent/popovercomponent.page';
 })
 export class ProfilePage implements OnInit {
 
-  constructor(private authService:AuthenticationService,
-    private router: Router, private popover:PopoverController) { }
+  user;
+  data;
+
+  constructor(private authSvc:AuthenticationService,
+    private dataSvc: DataAccessService,
+    private router: Router, 
+    private popover:PopoverController) {
+
+      this.authSvc.getUser().subscribe(user => {
+        this.user = user; 
+        this.dataSvc.getProfileData(this.user.uid).subscribe(result=>{
+          console.log(result)
+          this.data = result;
+        })
+      
+       });
+     }
 
   ngOnInit() {
   }
 
   onSignOut(){
-    this.authService.SignOut();
+    this.authSvc.SignOut();
   }
+
   CreatePopover()
    {
     this.popover.create({component:PopovercomponentPage,
@@ -26,5 +44,9 @@ export class ProfilePage implements OnInit {
     popoverElement.present();
     })
    }
+
+  editProfilePage(){
+    this.router.navigate(['profile-edit']);
+  }
 
 }

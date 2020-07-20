@@ -33,6 +33,10 @@ const routes: Routes = [
   },  {
     path: 'popovercomponent',
     loadChildren: () => import('./pages/popovercomponent/popovercomponent.module').then( m => m.PopovercomponentPageModule)
+  },
+  {
+    path: 'profile-edit',
+    loadChildren: () => import('./pages/profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
   }
 
 ];

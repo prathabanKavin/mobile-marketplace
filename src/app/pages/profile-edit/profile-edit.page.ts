@@ -63,7 +63,7 @@ export class ProfileEditPage implements OnInit {
     this.dataSvc.updatePhone(this.user.uid, profile.phone);
 
     console.log(this.user)
-    this.router.navigate(['profile']);
+    this.router.navigate(['tabs/profile']);
 
     }
 }

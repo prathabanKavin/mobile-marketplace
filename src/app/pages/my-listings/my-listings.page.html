@@ -3,11 +3,6 @@
    
     <ion-title>My Listings</ion-title>
     <ion-buttons slot="end">
-      <!-- <ion-button >
-        
-        <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
-        </ion-button> 
-      -->
       
       <ion-option><ion-button (click)="CreatePopover()" color="primary"> <ion-icon name="log-out-outline"></ion-icon></ion-button></ion-option>
       
@@ -16,6 +11,8 @@
 </ion-header>
 
 <ion-content>
+  
+  <ion-searchbar animated placeholder="Search Listings"></ion-searchbar>
 
   <div class="main_content_div">
    

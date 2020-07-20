@@ -225,6 +225,7 @@ export class MyListingsAddPage implements OnInit {
       console.log(this.user.uid, listing)
       this.dataSvc.addListing(this.user.uid, listing).then(()=>{
         this.util.toast('Listing has been successfully added!', 'success', 'bottom');
+        this.dataSvc.addAllListings(listing);
         this.router.navigate(['tabs/my-listings']);
       })
       .catch(err => {

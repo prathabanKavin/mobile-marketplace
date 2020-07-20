@@ -10,14 +10,19 @@ export class DataAccessService {
   constructor(private afs:AngularFirestore) { }
 
   addListing(userId, listing) {
-   
      return this.afs.collection<any>(`userListings/${userId}/listings`).add(listing);
-     
   }
 
   getListings(userId){
     return this.afs.collection<any>(`userListings/${userId}/listings`).valueChanges();
-   
+  }
+
+  addAllListings(listing){
+    return this.afs.collection<any>(`allListings`).add(listing);
+  }
+
+  getAllListings(){
+    return this.afs.collection<any>(`allListings`).valueChanges();
   }
   
 }

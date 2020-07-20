@@ -15,7 +15,8 @@ export class MyListingsPage implements OnInit {
   data;
   constructor(private router:Router, 
     private dataSvc:DataAccessService, 
-    private authSvc:AuthenticationService, private popover:PopoverController) { 
+    private authSvc:AuthenticationService, 
+    private popover:PopoverController) { 
 
       this.authSvc.getUser().subscribe(user => {
         this.user = user; 
